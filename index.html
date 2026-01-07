@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maturity Test | Hujaifa.fun</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #d946ef;
+            --bg-gradient: linear-gradient(135deg, #e0e7ff 0%, #fae8ff 50%, #fef3c7 100%);
+            --card-bg: rgba(255, 255, 255, 0.7);
+            --text-main: #312e81;
+            --text-sub: #4b5563;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Hind Siliguri', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Fixed Brand Identity */
+        .brand {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            background: linear-gradient(to right, #6366f1, #d946ef);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            z-index: 1000;
+            font-weight: 700;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            padding: 2.5rem 1.5rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            position: relative;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            display: none;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transition: width 0.4s ease;
+        }
+
+        h1 { font-size: 2rem; margin-bottom: 1rem; color: var(--text-main); font-weight: 600; }
+        .desc { color: var(--text-sub); margin-bottom: 2rem; line-height: 1.6; }
+
+        .btn-start {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-start:hover { transform: translateY(-2px); box-shadow: 0 15px 25px -5px rgba(99, 102, 241, 0.4); }
+
+        #quiz-box { display: none; }
+        .question-title { font-size: 1.3rem; margin-bottom: 2rem; text-align: left; line-height: 1.5; font-weight: 600; color: #1e1b4b; }
+
+        .options-grid { display: grid; gap: 12px; }
+        .option-card {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 16px;
+            border-radius: 18px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+            text-align: left;
+            font-size: 1.05rem;
+            color: #3730a3;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .option-card:hover {
+            background: #fff;
+            border-color: var(--secondary);
+            transform: scale(1.02);
+            color: var(--secondary);
+        }
+
+        #result-box { display: none; }
+        .score-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: white;
+            border: 5px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .fade-in { animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 480px) {
+            .brand { font-size: 1.5rem; top: 15px; left: 15px; }
+            .container { padding: 2rem 1.2rem; }
+            h1 { font-size: 1.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="brand">Hujaifa.fun</div>
+
+    <div id="landing-page" class="container fade-in">
+        <h1>Maturity Test</h1>
+        <p class="desc">যেটা সঠিক মনে হয় তা সিলেক্ট না করে যেটা আপনি বাস্তবে করে অভ্যস্থ সেটাই সিলেক্ট করুন।  তবেই সঠিক ফলাফল জানতে পারবেন। আপনার অবচেতন মনের সিদ্ধান্তগুলোই বলে দেবে আপনি মানসিকভাবে কতটা পরিণত। শুরু করতে নিচের বাটনে ক্লিক করুন।</p>
+        <button class="btn-start" onclick="startQuiz()">টেস্ট শুরু করুন</button>
+    </div>
+
+    <div id="quiz-box" class="container">
+        <div class="progress-container" id="p-con">
+            <div class="progress-bar" id="p-bar"></div>
+        </div>
+        <div id="question-area" class="fade-in">
+            <h3 class="question-title" id="question-text">Loading...</h3>
+            <div class="options-grid" id="options-container"></div>
+        </div>
+    </div>
+
+    <div id="result-box" class="container fade-in">
+        <h1>আপনার রেজাল্ট</h1>
+        <div class="score-circle" id="score-display">0%</div>
+        <h2 id="result-status" style="margin-bottom: 0.8rem; color: var(--primary);"></h2>
+        <p id="result-desc" class="desc"></p>
+        <button class="btn-start" onclick="location.reload()">আবার টেস্ট দিন</button>
+    </div>
+
+    <script>
+        const questions = [
+            { q: "১. কোনো তর্কে যখন আপনি নিশ্চিত যে আপনি সঠিক, তখন আপনার আচরণ কী হয়?", a: [ {t: "যেকোনো মূল্যে নিজেকে সঠিক প্রমাণ করি", p: 1}, {t: "শান্তভাবে যুক্তি দিয়ে কথা বলি, না বুঝলে থেমে যাই", p: 3}, {t: "বিরক্ত হয়ে চুপ হয়ে যাই কিন্তু মনে ক্ষোভ থাকে", p: 2} ] },
+            { q: "২. জীবনের সবচেয়ে বড় ব্যর্থতাকে আপনি কীভাবে দেখেন?", a: [ {t: "একটি অভিশাপ হিসেবে", p: 1}, {t: "ভবিষ্যতের জন্য একটি কঠিন শিক্ষা হিসেবে", p: 3}, {t: "ভাগ্যের লিখন হিসেবে মেনে নেই", p: 2} ] },
+            { q: "৩. আপনার ঘনিষ্ঠ কেউ আপনাকে অবহেলা করলে আপনি কী করেন?", a: [ {t: "প্রতিशोध নেওয়ার সুযোগ খুঁজি", p: 1}, {t: "নিজের আত্মসম্মান বজায় রেখে দূরত্ব বাড়িয়ে দিই", p: 3}, {t: "বারবার কারণ জিজ্ঞেস করে তাকে বিরক্ত করি", p: 2} ] },
+            { q: "৪. অন্যের গোপন কথা জানার ব্যাপারে আপনার আগ্রহ কেমন?", a: [ {t: "খুবই বেশি, গসিপ করতে ভালো লাগে", p: 1}, {t: "আগ্রহ নেই, ব্যক্তিগত গোপনীয়তাকে সম্মান করি", p: 3}, {t: "সামনে আসলে শুনি কিন্তু নিজে খুঁজি না", p: 2} ] },
+            { q: "৫. আপনার সাফল্যের পেছনে আপনি কাকে বেশি কৃতিত্ব দেন?", a: [ {t: "শুধুমাত্র নিজের কঠোর পরিশ্রমকে", p: 2}, {t: "নিজের শ্রম এবং পরিবেশ-পরিস্থিতির সঠিক সমন্বয়কে", p: 3}, {t: "আমার ভাগ্য বা কপালকে", p: 1} ] },
+            { q: "৬. সোশ্যাল মিডিয়ায় কেউ আপনার মতের বিরুদ্ধে মন্তব্য করলে কী করেন?", a: [ {t: "তাকে পাল্টা আক্রমণ করি", p: 1}, {t: "তার পয়েন্ট অফ ভিউ বোঝার চেষ্টা করি বা এড়িয়ে যাই", p: 3}, {t: "কমেন্ট ডিলিট বা তাকে ব্লক করি", p: 2} ] },
+            { q: "৭. নিজের অপছন্দের মানুষের ভালো খবরে আপনার প্রতিক্রিয়া কী?", a: [ {t: "মনে মনে খুব হিংসে হয়", p: 1}, {t: "স্বাভাবিকভাবে গ্রহণ করি, এটি তার প্রাপ্য ছিল", p: 3}, {t: "ভান করি যে আমি খুশি হয়েছি", p: 2} ] },
+            { q: "৮. আপনি কি একা একটি পুরো দিন কোনো ডিভাইস ছাড়া কাটাতে পারবেন?", a: [ {t: "অসম্ভব, আমি পাগল হয়ে যাব", p: 1}, {t: "হ্যাঁ, নিজের সাথে সময় কাটানো জরুরি", p: 3}, {t: "খুব কষ্টকর হবে কিন্তু চেষ্টা করতে পারি", p: 2} ] },
+            { q: "৯. উপকারের বদলে কেউ ক্ষতি করলে আপনি কী ভাবেন?", a: [ {t: "মানুষটাই খারাপ, কখনো উপকার করব না আর", p: 1}, {t: "এটি তার চরিত্র, আমি আমার ভালো কাজ থামাব না", p: 3}, {t: "সুযোগ বুঝে তাকে উচিত শিক্ষা দেব", p: 2} ] },
+            { q: "১০. আপনি কি ছোটখাটো বিষয়ে খুব দ্রুত উত্তেজিত হয়ে পড়েন?", a: [ {t: "হ্যাঁ, মেজাজ নিয়ন্ত্রণে থাকে না", p: 1}, {t: "না, আমি পরিস্থিতির গভীরতা বুঝে রিয়্যাক্ট করি", p: 3}, {t: "ভেতরে অস্থির লাগে কিন্তু প্রকাশ করি না", p: 2} ] },
+            { q: "১১. আপনি কি আপনার ভুলের জন্য অন্যদের দায়ী করেন?", a: [ {t: "হ্যাঁ, পরিস্থিতি বা অন্য কেউ দায়ী থাকেই", p: 1}, {t: "নিজের দায়ভার সম্পূর্ণ গ্রহণ করি", p: 3}, {t: "মাঝে মাঝে নিজের দোষ বুঝতে সময় লাগে", p: 2} ] },
+            { q: "১২. দীর্ঘমেয়াদী লক্ষ্যের জন্য আপনি কি বর্তমানের বিলাসিতা ত্যাগ করতে পারেন?", a: [ {t: "না, বর্তমান উপভোগ করা বেশি জরুরি", p: 1}, {t: "হ্যাঁ, ভবিষ্যতের জন্য ত্যাগ স্বীকারে আমি প্রস্তুত", p: 3}, {t: "চেষ্টা করি কিন্তু সবসময় পারি না", p: 2} ] },
+            { q: "১৩. কোনো কাজ শুরু করার পর মাঝপথে ধৈর্য হারালে কী করেন?", a: [ {t: "কাজটি ছেড়ে দিই", p: 1}, {t: "বিরতি নিই কিন্তু কাজটি শেষ করি", p: 3}, {t: "অনিচ্ছা সত্ত্বেও দায়সারাভাবে শেষ করি", p: 2} ] },
+            { q: "১৪. আপনি কি অন্যের প্রশংসা মন থেকে করতে পারেন?", a: [ {t: "হ্যাঁ, ভালো কাজের প্রশংসা করা উচিত", p: 3}, {t: "না, এতে নিজেকে ছোট মনে হয়", p: 1}, {t: "খুব প্রয়োজন হলে করি", p: 2} ] },
+            { q: "১৫. মৃত্যুকে আপনি কীভাবে দেখেন?", a: [ {t: "একটি চরম আতঙ্ক", p: 1}, {t: "জীবনের এক ধ্রুব সত্য ও স্বাভাবিক সমাপ্তি", p: 3}, {t: "এটি নিয়ে আমি ভাবতেই চাই না", p: 2} ] }
+        ];
+
+        let currentQ = 0;
+        let totalPoints = 0;
+
+        function startQuiz() {
+            document.getElementById('landing-page').style.display = 'none';
+            document.getElementById('quiz-box').style.display = 'block';
+            document.getElementById('p-con').style.display = 'block';
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const qData = questions[currentQ];
+            document.getElementById('question-text').innerText = qData.q;
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+            
+            document.getElementById('p-bar').style.width = ((currentQ / questions.length) * 100) + '%';
+
+            qData.a.forEach(option => {
+                const div = document.createElement('div');
+                div.className = 'option-card fade-in';
+                div.innerText = option.t;
+                div.onclick = () => handleAnswer(option.p);
+                container.appendChild(div);
+            });
+        }
+
+        function handleAnswer(p) {
+            totalPoints += p;
+            currentQ++;
+            if(currentQ < questions.length) {
+                showQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            document.getElementById('quiz-box').style.display = 'none';
+            document.getElementById('result-box').style.display = 'block';
+            
+            const maxPoints = questions.length * 3;
+            const percentage = Math.round((totalPoints / maxPoints) * 100);
+            document.getElementById('score-display').innerText = percentage + "%";
+
+            let status = "", desc = "";
+            if(percentage >= 85) {
+                status = "Stoic Sage (মহাজ্ঞানী)";
+                desc = "আপনার মানসিক পরিপক্কতা ঈর্ষণীয়। আপনি যুক্তি এবং আবেগের সঠিক ভারসাম্য বোঝেন।";
+            } else if(percentage >= 65) {
+                status = "Evolving Soul (বিকাশমান)";
+                desc = "আপনি সঠিক পথেই আছেন। তবে কিছু ক্ষেত্রে আবেগের চেয়ে যুক্তির ব্যবহার বাড়ানো প্রয়োজন।";
+            } else {
+                status = "Young Mind (তরুণ মন)";
+                desc = "আপনার চিন্তা এখনো আবেগের দ্বারা বেশি চালিত। জীবনের গভীরতা বুঝতে ধৈর্য প্রয়োজন।";
+            }
+            document.getElementById('result-status').innerText = status;
+            document.getElementById('result-desc').innerText = desc;
+        }
+    </script>
+</body>
+</html>
